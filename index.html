@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Screen Image</title>
+    <style>
+        /* Ensure body and html take up the full viewport */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-y: auto; /* Allow vertical scrolling */
+        }
+
+        /* Container for the background image */
+        .image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('image.jpg');
+            background-size: contain; /* Adjust size to contain the image within the container */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent image tiling */
+            background-color: #000; /* Fallback color if image does not cover the container */
+        }
+
+        /* Content that makes the page scrollable */
+        .content {
+            position: relative;
+            z-index: 1; /* Ensure content is above the background image */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+            text-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container"></div>
+    <div class="content">
+       
+    </div>
+</body>
+</html>
