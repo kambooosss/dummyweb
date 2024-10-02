@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,5 +43,41 @@
     <div class="content">
        
     </div>
+</body>
+</html>
+ -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Image (No Cutoff)</title>
+    <style>
+        /* Ensure the body takes up the full screen */
+        html, body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black; /* Optional: Add a background color for empty spaces */
+        }
+
+        /* Set the image to always fit within the viewport */
+        .full-screen-image {
+            background-image: url('image.jpg');
+            background-size: contain; /* Ensure the entire image is always visible */
+            background-position: center; /* Center the image in the viewport */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="full-screen-image"></div>
 </body>
 </html>
