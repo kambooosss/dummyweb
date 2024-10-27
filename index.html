@@ -1,83 +1,54 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full-Screen Image</title>
-    <style>
-        /* Ensure body and html take up the full viewport */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            overflow-y: auto; /* Allow vertical scrolling */
-        }
-
-        /* Container for the background image */
-        .image-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('image.jpg');
-            background-size: contain; /* Adjust size to contain the image within the container */
-            background-position: center; /* Center the image */
-            background-repeat: no-repeat; /* Prevent image tiling */
-            background-color: #000; /* Fallback color if image does not cover the container */
-        }
-
-        /* Content that makes the page scrollable */
-        .content {
-            position: relative;
-            z-index: 1; /* Ensure content is above the background image */
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
-            text-align: top;
-        }
-    </style>
-</head>
-<body>
-    <div class="image-container"></div>
-    <div class="content">
-       
-    </div>
-</body>
-</html>
- -->
-
-
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Screen Image (No Cutoff)</title>
+    <title>Vertical Scrollable Image Gallery</title>
     <style>
         /* Ensure the body takes up the full screen */
         html, body {
             margin: 0;
             height: 100%;
             overflow: hidden;
+            background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: black; /* Optional: Add a background color for empty spaces */
         }
 
-        /* Set the image to always fit within the viewport */
-        .full-screen-image {
-            background-image: url('poster.png');
-            background-size: contain; /* Ensure the entire image is always visible */
-            background-position: center; /* Center the image in the viewport */
-            background-repeat: no-repeat; /* Prevent the image from repeating */
+        /* Create a scrollable container for vertical scrolling */
+        .image-gallery {
+            display: flex;
+            flex-direction: column; /* Stack images vertically */
+            overflow-y: auto; /* Scrollable vertically */
             width: 100vw;
             height: 100vh;
+            scroll-snap-type: y mandatory; /* Snaps to each image while scrolling */
+        }
+
+        /* Each image takes up the full viewport width */
+        .image-gallery img {
+            flex-shrink: 0;
+            width: 100vw; /* Full viewport width */
+            height: auto; /* Auto height to maintain aspect ratio */
+            object-fit: contain; /* Ensure the entire image is always visible */
+            scroll-snap-align: start; /* Align images at the start on scroll */
+            background-color: black; /* Background for padding areas */
+            margin-bottom: 10px; /* Optional spacing between images */
+        }
+  
+        /* Hide the vertical scrollbar */
+        .image-gallery::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="full-screen-image"></div>
+    <div class="image-gallery">
+        <img src="IMG20230529075346.jpg" alt="Image 1">
+        <!-- <img src="https://images.unsplash.com/photo-1578589318274-02854f68813e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGltYWdlfGVufDB8fDB8fHww" alt="Image 2">
+        <img src="https://via.placeholder.com/800x600" alt="Image 3"> -->
+        <!-- Add more images as needed -->
+    </div>
 </body>
 </html>
