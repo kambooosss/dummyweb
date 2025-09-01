@@ -59,36 +59,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Continuous Scrollable Photo Gallery</title>
+  <title>Full Image Visible Photo Gallery</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       background: #111;
       font-family: 'Segoe UI', Arial, sans-serif;
+      height: 100%;
+      width: 100%;
       overflow-x: hidden;
     }
     .gallery-container {
       width: 100vw;
-      height: 100vh;
-      overflow-y: scroll;
+      min-height: 100vh;
+      overflow-y: auto;
       scroll-behavior: smooth;
       position: relative;
+      padding-bottom: 70px; /* Space for fixed button */
     }
-    .photo {
+    .gallery-container img.photo {
       width: 100vw;
-      height: 1080px;
-      max-height: 100vh;
-      object-fit: cover;
+      max-width: 100vw;
+      height: auto;
+      /* REMOVE object-fit: cover so entire image is always visible */
       display: block;
+      /* If images are square, aspect-ratio is optional.
+         Remove aspect-ratio if it causes black bars or stretching. */
     }
     .fixed-button {
       position: fixed;
       left: 50%;
       bottom: 24px;
       transform: translateX(-50%);
-      background: #fff;
-      color: #222;
+      background: hsl(0, 64%, 32%);
+      color: #ffffff;
       padding: 12px 24px;
       border-radius: 10px;
       font-size: 16px;
@@ -96,19 +101,22 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       cursor: pointer;
       z-index: 999;
-      opacity: 0.85;
+      opacity: 1;
     }
   </style>
 </head>
 <body>
   <div class="gallery-container">
-    <img src="IMG20230529075346.jpg" alt="Image 1">
-    <img src="IMG20230529075346.jpg" alt="Image 1">
-    <img src="IMG20230529075346.jpg" alt="Image 1">
-    <img src="IMG20230529075346.jpg" alt="Image 1">
+    <img src="image1.png" alt="Image 1" class="photo">
+    <img src="image1.png" alt="Image 1" class="photo">
+    <img src="image1.png" alt="Image 1" class="photo">
+    <img src="image1.png" alt="Image 1" class="photo">
+    <img src="image1.png" alt="Image 1" class="photo">
+    <img src="image1.png" alt="Image 1" class="photo">
     <!-- Add more images as needed -->
   </div>
-  <button class="fixed-button">Click Me</button>
+  <button class="fixed-button">Feedback</button>
 </body>
 </html>
+
 
